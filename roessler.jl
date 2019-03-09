@@ -1,10 +1,11 @@
 using DifferentialEquations
 
 function rössler!(du,u,p,t)
+    x,y,z = u
     a,b,c = p
-    du[1] = -u[2] - u[3]
-    du[2] = u[1] + a*u[2]
-    du[3] = b + u[3]*(u[1]-c)
+    du[1] = dx = -y - z
+    du[2] = dy = x + a*y
+    du[3] = dz = b + z*(x-c)
 end
 
 u0 = [1.0,1.0,0.0]
